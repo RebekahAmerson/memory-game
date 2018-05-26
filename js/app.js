@@ -41,7 +41,11 @@ let gameBoard = [];
 let flippedCards = [];
 let matchedCards = []
 
-function setGameBoard(){
+function setGameBoard() {
   gameBoard.push(document.getElementsByClassName('card'));
   console.log (gameBoard.toString());
+}
+
+function flipCard(card) {
+  card.classList.add('open', 'show');
 }

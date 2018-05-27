@@ -73,6 +73,13 @@ function moveCount() {
   return moveCounter;
 }
 
+function reset() {
+  document.querySelectorAll('.stars i')[1].classList.add('fa');
+  document.querySelectorAll('.stars i')[1].classList.remove('far');
+  document.querySelectorAll('.stars i')[0].classList.add('fa');
+  document.querySelectorAll('.stars i')[0].classList.remove('far');
+}
 //
 // setGameBoard();
 // gameBoard = shuffle(gameBoard);
+// document.querySelector('.deck').addEventListener('click', )

@@ -55,7 +55,7 @@ function pickCard(card) {
   flippedCards.push(card);
 }}
 
-function starRating(moveCounter) {
+function starRating() {
   if (moveCounter >= 12) {
     document.querySelector('.stars i').classList.add('far');
     document.querySelector('.stars i').classList.remove('fa');

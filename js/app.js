@@ -37,9 +37,9 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 let moveCounter = 0; //move counter
-let gameBoard = [];
-let flippedCards = [];
-let matchedCards = []
+let gameBoard = []; //array of all cards
+let flippedCards = []; //cards that have been flipped
+let matchedCards = []; //cards that are matched
 
 function setGameBoard() {
   gameBoard.push(document.getElementsByClassName('card'));
@@ -54,3 +54,18 @@ function pickCard(card) {
   if (!card.classList.contains('open') && !card.classList.contains('match')) {
   flippedCards.push(card);
 }}
+
+function starRating(moveCounter) {
+  if (moveCounter >= 12) {
+    document.querySelector('.stars i').classList.add('far');
+    document.querySelector('.stars i').classList.remove('fa');
+  }
+  if (moveCounter > 16) {
+    document.querySelectorAll('.stars i')[1].classList.add('far');
+    document.querySelectorAll('.stars i')[1].classList.remove('fa');
+  }
+}
+
+//
+// setGameBoard();
+// gameBoard = shuffle(gameBoard);

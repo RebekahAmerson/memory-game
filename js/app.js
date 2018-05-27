@@ -36,7 +36,7 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
-let moveCounter = 0; //move counter
+let moveCounter = document.querySelector('.moves').innerHTML; //move counter
 let gameBoard = []; //array of all cards
 let flippedCards = []; //cards that have been flipped
 let matchedCards = []; //cards that are matched
@@ -66,9 +66,11 @@ function starRating(moveCounter) {
   }
 }
 
-function moveCount(moves) {
-  document.querySelector('.moves').innerHTML = moves;
-  console.log (moves);
+function moveCount() {
+  moveCounter++;
+  document.querySelector('.moves').innerHTML = moveCounter;
+  console.log (moveCounter);
+  return moveCounter;
 }
 
 //

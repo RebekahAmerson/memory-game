@@ -66,6 +66,11 @@ function starRating(moveCounter) {
   }
 }
 
+function moveCount(moves) {
+  document.querySelector('.moves').innerHTML = moves;
+  console.log (moves);
+}
+
 //
 // setGameBoard();
 // gameBoard = shuffle(gameBoard);

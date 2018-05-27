@@ -49,3 +49,8 @@ function setGameBoard() {
 function flipCard(card) {
   card.classList.add('open', 'show');
 }
+
+function pickCard(card) {
+  if (!card.classList.contains('open') && !card.classList.contains('match')) {
+  flippedCards.push(card);
+}}

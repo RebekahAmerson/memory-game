@@ -40,6 +40,7 @@ let moveCounter = document.querySelector('.moves').innerHTML; //move counter
 let gameBoard = document.querySelectorAll('.card'); //array of all cards
 let flippedCards = []; //cards that have been flipped
 let matchedCards = []; //cards that are matched
+const resetIcon = document.querySelector('.restart'); //reset icon
 
 function flipCard(e) {
   e.target.classList.add('open', 'show');
@@ -64,8 +65,6 @@ function starRating() {
 function moveCount() {
   moveCounter++;
   document.querySelector('.moves').innerHTML = moveCounter;
-  console.log (moveCounter);
-  return moveCounter;
 }
 
 function reset() {
@@ -77,7 +76,5 @@ function reset() {
     gameBoard[index].classList.remove('open', 'show', 'match');
   });
 }
-//
-// setGameBoard();
-// gameBoard = shuffle(gameBoard);
 document.querySelector('.deck').addEventListener('click', flipCard);
+resetIcon.addEventListener('click', reset);

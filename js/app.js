@@ -1,7 +1,8 @@
-/*
- * Create a list that holds all of your cards
- */
-
+let moveCounter = document.querySelector('.moves').innerHTML; //move counter
+let gameBoard = document.querySelectorAll('.card'); //array of all cards
+let flippedCards = []; //cards that have been flipped
+let matchedCards = []; //cards that are matched
+const resetIcon = document.querySelector('.restart'); //reset icon
 
 /*
  * Display the cards on the page
@@ -36,11 +37,14 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
-let moveCounter = document.querySelector('.moves').innerHTML; //move counter
-let gameBoard = document.querySelectorAll('.card'); //array of all cards
-let flippedCards = []; //cards that have been flipped
-let matchedCards = []; //cards that are matched
-const resetIcon = document.querySelector('.restart'); //reset icon
+
+//contains all game parts.
+function playGame(e) {
+  flipCard(e);
+  if (flippedCards.length === 2) {
+    matchCard(flippedCards);
+  }
+}
 
 //takes card and if it isn't already flipped and not an icon, adds it to the flipped cards array.
 function flipCard(e) {
@@ -87,7 +91,7 @@ function reset() {
 }
 
 gameBoard.forEach(function(card) {
-  card.addEventListener('click', flipCard);
+  card.addEventListener('click', playGame);
 });
 // document.querySelectorAll('.deck .card').addEventListener('click', flipCard);
 resetIcon.addEventListener('click', reset);

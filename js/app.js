@@ -46,8 +46,8 @@ function setGameBoard() {
   console.log (gameBoard.toString());
 }
 
-function flipCard(card) {
-  card.classList.add('open', 'show');
+function flipCard(e) {
+  e.target.classList.add('open', 'show');
 }
 
 function pickCard(card) {
@@ -82,4 +82,4 @@ function reset() {
 //
 // setGameBoard();
 // gameBoard = shuffle(gameBoard);
-// document.querySelector('.deck').addEventListener('click', )
+document.querySelector('.deck').addEventListener('click', flipCard);

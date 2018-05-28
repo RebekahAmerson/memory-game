@@ -42,19 +42,22 @@ let flippedCards = []; //cards that have been flipped
 let matchedCards = []; //cards that are matched
 const resetIcon = document.querySelector('.restart'); //reset icon
 
+//takes card and if it isn't already flipped and not an icon, adds it to the flipped cards array.
 function flipCard(e) {
   if (!e.target.classList.contains('open') && !e.target.classList.contains('match') && (e.target.nodeName != 'I')) {
     flippedCards.push(e.target);
     e.target.classList.add('open', 'show');
-  // pickCard(e.target);
 }}
 
-// function pickCard(card) {
-//   if (!card.classList.contains('open') && !card.classList.contains('match')) {
-//   flippedCards.push(card);
-// }}
-
-// function matchCard
+function matchCard(array) {
+  card1 = array[0].firstElementChild.classList.value;
+  card2 = array[1].firstElementChild.classList.value;
+    if (card1 === card2) {
+      array.forEach(function(element, index) {
+        array[index].classList.add('match');
+      })
+    }
+}
 
 function starRating() {
   if (moveCounter >= 12) {

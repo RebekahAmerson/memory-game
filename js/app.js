@@ -42,7 +42,7 @@ function shuffle(array) {
 function playGame(e) {
   flipCard(e);
   if (flippedCards.length === 2) {
-    matchCard(flippedCards);
+    setTimeout(matchCard, 500);
     setTimeout(resetFlippedArray, 1000);
 
   }
@@ -56,19 +56,19 @@ function flipCard(e) {
 }}
 
 //compares symbol on card to each other.
-function matchCard(array) {
-  card1 = array[0].firstElementChild.classList.value;
-  card2 = array[1].firstElementChild.classList.value;
+function matchCard() {
+  card1 = flippedCards[0].firstElementChild.classList.value;
+  card2 = flippedCards[1].firstElementChild.classList.value;
     if (card1 === card2) {
-      array.forEach(function(element, index) {
-        array[index].classList.add('match');
-        array[index].classList.remove('open');
+      flippedCards.forEach(function(element, index) {
+        flippedCards[index].classList.add('match');
+        flippedCards[index].classList.remove('open');
       })
     }
     else {
-      array.forEach(function(element, index) {
-        array[index].classList.add('different');
-        array[index].classList.remove('open');
+      flippedCards.forEach(function(element, index) {
+        flippedCards[index].classList.add('different');
+        flippedCards[index].classList.remove('open');
     })
 }}
 
@@ -80,6 +80,7 @@ function resetFlippedArray() {
   flippedCards = [];
 }
 
+//changes star rating dependent on move count.
 function starRating() {
   if (moveCounter >= 12) {
     document.querySelector('.stars i').classList.add('far');
@@ -91,11 +92,13 @@ function starRating() {
   }
 }
 
+//increments the move counter variable.
 function moveCount() {
   moveCounter++;
   document.querySelector('.moves').innerHTML = moveCounter;
 }
 
+//resets the board. NEED TO ADD SHUFFLE TO THIS!
 function reset() {
   document.querySelectorAll('.stars i')[1].classList.add('fa');
   document.querySelectorAll('.stars i')[1].classList.remove('far');

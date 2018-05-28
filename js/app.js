@@ -43,6 +43,7 @@ function playGame(e) {
   flipCard(e);
   if (flippedCards.length === 2) {
     matchCard(flippedCards);
+    resetFlippedArray();
     flippedCards = [];
   }
 }
@@ -70,6 +71,11 @@ function matchCard(array) {
         array[index].classList.remove('open');
     })
 }}
+
+function resetFlippedArray() {
+  flippedCards.forEach(function(element,index) {
+    flippedCards[index].classList.remove('open', 'different');
+})}
 
 function starRating() {
   if (moveCounter >= 12) {

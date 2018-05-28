@@ -46,9 +46,10 @@ const resetIcon = document.querySelector('.restart'); //reset icon
 function flipCard(e) {
   if (!e.target.classList.contains('open') && !e.target.classList.contains('match') && (e.target.nodeName != 'I')) {
     flippedCards.push(e.target);
-    e.target.classList.add('open', 'show');
+    e.target.classList.add('open');
 }}
 
+//compares symbol on card to each other.
 function matchCard(array) {
   card1 = array[0].firstElementChild.classList.value;
   card2 = array[1].firstElementChild.classList.value;
@@ -81,7 +82,7 @@ function reset() {
   document.querySelectorAll('.stars i')[0].classList.add('fa');
   document.querySelectorAll('.stars i')[0].classList.remove('far');
   gameBoard.forEach(function(element,index) {
-    gameBoard[index].classList.remove('open', 'show', 'match');
+    gameBoard[index].classList.remove('open', 'match');
   });
 }
 

@@ -37,14 +37,9 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 let moveCounter = document.querySelector('.moves').innerHTML; //move counter
-let gameBoard = []; //array of all cards
+let gameBoard = document.querySelectorAll('.card'); //array of all cards
 let flippedCards = []; //cards that have been flipped
 let matchedCards = []; //cards that are matched
-
-function setGameBoard() {
-  gameBoard.push(document.getElementsByClassName('card'));
-  console.log (gameBoard.toString());
-}
 
 function flipCard(e) {
   e.target.classList.add('open', 'show');
@@ -78,6 +73,9 @@ function reset() {
   document.querySelectorAll('.stars i')[1].classList.remove('far');
   document.querySelectorAll('.stars i')[0].classList.add('fa');
   document.querySelectorAll('.stars i')[0].classList.remove('far');
+  gameBoard.forEach(function(element,index) {
+    gameBoard[index].classList.remove('open', 'show', 'match');
+  });
 }
 //
 // setGameBoard();

@@ -60,9 +60,15 @@ function matchCard(array) {
     if (card1 === card2) {
       array.forEach(function(element, index) {
         array[index].classList.add('match');
+        array[index].classList.remove('open');
       })
     }
-}
+    else {
+      array.forEach(function(element, index) {
+        array[index].classList.add('different');
+        array[index].classList.remove('open');
+    })
+}}
 
 function starRating() {
   if (moveCounter >= 12) {
@@ -86,7 +92,7 @@ function reset() {
   document.querySelectorAll('.stars i')[0].classList.add('fa');
   document.querySelectorAll('.stars i')[0].classList.remove('far');
   gameBoard.forEach(function(element,index) {
-    gameBoard[index].classList.remove('open', 'match');
+    gameBoard[index].classList.remove('open', 'match', 'different');
   });
 }
 

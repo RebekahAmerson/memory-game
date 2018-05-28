@@ -43,6 +43,7 @@ function playGame(e) {
   flipCard(e);
   if (flippedCards.length === 2) {
     matchCard(flippedCards);
+    flippedCards = [];
   }
 }
 
@@ -94,6 +95,7 @@ function reset() {
   gameBoard.forEach(function(element,index) {
     gameBoard[index].classList.remove('open', 'match', 'different');
   });
+  flippedCards = [];
 }
 
 gameBoard.forEach(function(card) {

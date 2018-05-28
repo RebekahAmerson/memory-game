@@ -43,13 +43,18 @@ let matchedCards = []; //cards that are matched
 const resetIcon = document.querySelector('.restart'); //reset icon
 
 function flipCard(e) {
-  e.target.classList.add('open', 'show');
-}
-
-function pickCard(card) {
-  if (!card.classList.contains('open') && !card.classList.contains('match')) {
-  flippedCards.push(card);
+  if (!e.target.classList.contains('open') && !e.target.classList.contains('match') && (e.target.nodeName != 'I')) {
+    flippedCards.push(e.target);
+    e.target.classList.add('open', 'show');
+  // pickCard(e.target);
 }}
+
+// function pickCard(card) {
+//   if (!card.classList.contains('open') && !card.classList.contains('match')) {
+//   flippedCards.push(card);
+// }}
+
+// function matchCard
 
 function starRating() {
   if (moveCounter >= 12) {
@@ -76,5 +81,9 @@ function reset() {
     gameBoard[index].classList.remove('open', 'show', 'match');
   });
 }
-document.querySelector('.deck').addEventListener('click', flipCard);
+
+gameBoard.forEach(function(card) {
+  card.addEventListener('click', flipCard);
+});
+// document.querySelectorAll('.deck .card').addEventListener('click', flipCard);
 resetIcon.addEventListener('click', reset);

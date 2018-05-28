@@ -44,7 +44,8 @@ function playGame(e) {
   if (flippedCards.length === 2) {
     setTimeout(matchCard, 500);
     setTimeout(resetFlippedArray, 1000);
-
+    moveCount();
+    starRating();
   }
 }
 

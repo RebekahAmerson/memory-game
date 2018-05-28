@@ -43,8 +43,8 @@ function playGame(e) {
   flipCard(e);
   if (flippedCards.length === 2) {
     matchCard(flippedCards);
-    resetFlippedArray();
-    flippedCards = [];
+    setTimeout(resetFlippedArray, 1000);
+
   }
 }
 
@@ -72,10 +72,13 @@ function matchCard(array) {
     })
 }}
 
+//resets cards that are not matched.
 function resetFlippedArray() {
   flippedCards.forEach(function(element,index) {
     flippedCards[index].classList.remove('open', 'different');
-})}
+})
+  flippedCards = [];
+}
 
 function starRating() {
   if (moveCounter >= 12) {

@@ -128,6 +128,7 @@ h1 {
   position: fixed;
   top: -50%;
   left: 12.5%;
+  transition: transform 1s;
 }
 
 #congrats-text {
@@ -137,6 +138,7 @@ h1 {
   position: fixed;
   top: -50%;
   left: 12.5%;
+  transition: transform 1s;
 }
 
 #congrats-text h1 {

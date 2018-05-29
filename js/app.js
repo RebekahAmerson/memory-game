@@ -46,10 +46,7 @@ function playGame(e) {
     setTimeout(resetFlippedArray, 1000);
     moveCount();
     starRating();
-  }
-
-  if (matchedCards.length === 16) {
-
+    setTimeout(checkWin, 500);
   }
 }
 
@@ -104,6 +101,13 @@ function moveCount() {
   document.querySelector('.moves').innerHTML = moveCounter;
 }
 
+function checkWin() {
+  if (matchedCards.length === 16) {
+    document.getElementById('congrats-background').classList.add('win');
+    document.getElementById('congrats-text').classList.add('win');
+  }
+}
+
 //resets the board. NEED TO ADD SHUFFLE TO THIS!
 function reset() {
   document.querySelectorAll('.stars i')[1].classList.add('fa');
@@ -114,7 +118,7 @@ function reset() {
     gameBoard[index].classList.remove('open', 'match', 'different');
   });
   flippedCards = [];
-  document.querySelector('.moves').innerHTML = 0;  
+  document.querySelector('.moves').innerHTML = 0;
 }
 
 gameBoard.forEach(function(card) {

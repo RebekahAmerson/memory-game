@@ -136,16 +136,16 @@ h1 {
 
 .win {
   transition: transform 1s;
-  transform: translateY(150%);
+  transform: translateY(250%);
 }
 
 #congrats-background {
   opacity: .9;
   background: #8270a4;
   width: 75%;
-  height: 50%;
+  height: 52%;
   position: fixed;
-  top: -50%;
+  top: -100%;
   left: 12.5%;
   transition: transform 1s;
 }
@@ -155,7 +155,7 @@ h1 {
   width: 75%;
   height: 50%;
   position: fixed;
-  top: -50%;
+  top: -100%;
   left: 12.5%;
   transition: transform 1s;
 }
@@ -185,9 +185,9 @@ h1 {
 #congrats-text button {
   display: block;
   margin: 0 auto;
-  width: 20%;
+  width: 22%;
   height: 15%;
   cursor: pointer;
-  font-size: 1.5em;
+  font-size: 1.3em;
   background: #b3e6ff;
 }

@@ -48,6 +48,7 @@ function playGame(e) {
     moveCount();
     starRating();
     setTimeout(checkWin, 300);
+    console.log('moveCount is ' +moveCounter);
   }
 }
 
@@ -107,6 +108,7 @@ function checkWin() {
     document.getElementById('congrats-background').classList.add('win');
     document.getElementById('congrats-text').classList.add('win');
   }
+  console.log('moveCount in checkWin is ' +moveCounter);
 }
 
 //resets the board. NEED TO ADD SHUFFLE TO THIS!
@@ -119,9 +121,11 @@ function reset() {
     gameBoard[index].classList.remove('open', 'match', 'different');
   });
   flippedCards = [];
+  matchedCards = [];
   document.querySelector('.moves').innerHTML = 0;
   document.getElementById('congrats-background').classList.remove('win');
   document.getElementById('congrats-text').classList.remove('win');
+  console.log('moveCount in reset is ' +moveCounter);
 }
 
 //

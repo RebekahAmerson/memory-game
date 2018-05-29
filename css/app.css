@@ -115,14 +115,10 @@ h1 {
  * Styles for the Win Panel
  */
 
-#congrats-container {
-  transform: translate(-150%);
-}
-
-/* .win {
+.win {
   transition: transform 1s;
-  transform: translate(150%);
-} */
+  transform: translateY(150%);
+}
 
 #congrats-background {
   opacity: .9;
@@ -130,9 +126,8 @@ h1 {
   width: 75%;
   height: 50%;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: -50%;
+  left: 12.5%;
 }
 
 #congrats-text {
@@ -140,9 +135,8 @@ h1 {
   width: 75%;
   height: 50%;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: -50%;
+  left: 12.5%;
 }
 
 #congrats-text h1 {
@@ -175,5 +169,4 @@ h1 {
   cursor: pointer;
   font-size: 1.5em;
   background: #b3e6ff;
-  /* border: #80d4ff; */
 }

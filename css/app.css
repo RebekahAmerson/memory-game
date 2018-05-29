@@ -76,7 +76,7 @@ h1 {
     cursor: default;
     background: #02ccba;
     font-size: 33px;
-    animation: 1s correct;
+    animation: 800ms correct;
 }
 
 @keyframes correct {

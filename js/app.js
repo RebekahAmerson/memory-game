@@ -47,6 +47,10 @@ function playGame(e) {
     moveCount();
     starRating();
   }
+
+  if (matchedCards.length === 16) {
+
+  }
 }
 
 //takes card and if it isn't already flipped and not an icon, adds it to the flipped cards array.
@@ -64,6 +68,7 @@ function matchCard() {
       flippedCards.forEach(function(element, index) {
         flippedCards[index].classList.add('match');
         flippedCards[index].classList.remove('open');
+        matchedCards.push(flippedCards[index]);
       })
     }
     else {
@@ -109,6 +114,7 @@ function reset() {
     gameBoard[index].classList.remove('open', 'match', 'different');
   });
   flippedCards = [];
+  document.querySelector('.moves').innerHTML = 0;  
 }
 
 gameBoard.forEach(function(card) {

@@ -3,6 +3,7 @@ let gameBoard = document.querySelectorAll('.card'); //array of all cards
 let flippedCards = []; //cards that have been flipped
 let matchedCards = []; //cards that are matched
 const resetIcon = document.querySelector('.restart'); //reset icon
+const playAgain = document.querySelector('button');
 
 /*
  * Display the cards on the page
@@ -119,10 +120,14 @@ function reset() {
   });
   flippedCards = [];
   document.querySelector('.moves').innerHTML = 0;
+  document.getElementById('congrats-background').classList.remove('win');
+  document.getElementById('congrats-text').classList.remove('win');
 }
 
+//
 gameBoard.forEach(function(card) {
   card.addEventListener('click', playGame);
 });
-// document.querySelectorAll('.deck .card').addEventListener('click', flipCard);
+
 resetIcon.addEventListener('click', reset);
+playAgain.addEventListener('click', reset);

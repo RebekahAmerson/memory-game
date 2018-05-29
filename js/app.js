@@ -126,7 +126,7 @@ function reset() {
   document.getElementById('congrats-text').classList.remove('win');
 }
 
-//
+//event listeners.
 gameBoard.forEach(function(card) {
   card.addEventListener('click', playGame);
 });

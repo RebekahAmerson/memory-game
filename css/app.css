@@ -120,6 +120,11 @@ h1 {
     display: inline-block;
 }
 
+#timer {
+  display: inline-block;
+  margin-left: 30px;
+}
+
 .score-panel .restart {
     float: right;
     cursor: pointer;

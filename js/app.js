@@ -43,11 +43,11 @@ function shuffle(array) {
 function playGame(e) {
   flipCard(e);
   if (flippedCards.length === 2) {
-    setTimeout(matchCard, 500);
+    setTimeout(matchCard, 300);
     setTimeout(resetFlippedArray, 1000);
     moveCount();
     starRating();
-    setTimeout(checkWin, 500);
+    setTimeout(checkWin, 300);
   }
 }
 

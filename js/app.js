@@ -5,8 +5,9 @@ let flippedCards = []; //cards that have been flipped
 let matchedCards = []; //cards that are matched
 const resetIcon = document.querySelector('.restart'); //reset icon
 const playAgain = document.querySelector('button');
-let congratsMoves = document.querySelector('#congrats-text .moves');
-let congratsTimer = document.querySelector('#congrats-text #timer-text');
+const congratsMoves = document.querySelector('#congrats-text .moves');
+const congratsTimer = document.querySelector('#congrats-text #timer-text');
+const congratsStars = document.querySelectorAll('#score li');
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -159,6 +160,8 @@ function checkWin() {
     document.getElementById('congrats-text').classList.add('win');
     congratsMoves.innerHTML = moveCounter;
     congratsTimer.innerHTML = document.querySelector('.score-panel #timer-text').innerHTML;
+    congratsStars[0].innerHTML = document.querySelectorAll('.score-panel li')[0].innerHTML;
+    congratsStars[1].innerHTML = document.querySelectorAll('.score-panel li')[1].innerHTML;
   }
 }
 

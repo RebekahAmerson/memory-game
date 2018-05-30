@@ -77,7 +77,28 @@ function setGameBoard() {
   });
 }
 
+function timer(runTimer) {
+  let time = 0;
+  while(runTimer) {
+    setTimeout(function(){
+      time++;
+    }, 1000);
+  }
+  let sec = (time % 60);
+  let min = Math.floor(time/60);
+  let hour = Math.floor((time/60)/60);
 
+
+  document.querySelector('#timer-text').innerText = format(hour) +':' +format(min) +':' +format(sec);
+}
+
+//formatting timer numbers.
+function format(x) {
+  if (x < 10) {
+    x = "0" +x;
+  }
+  return x;
+}
 
 //takes card and if it isn't already flipped and not an icon, adds it to the flipped cards array.
 function flipCard(e) {
@@ -170,3 +191,6 @@ function reset() {
 
 resetIcon.addEventListener('click', reset);
 playAgain.addEventListener('click', reset);
+
+//initiate setGameBoard.
+setGameBoard();

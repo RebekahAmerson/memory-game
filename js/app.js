@@ -160,6 +160,7 @@ function reset() {
   moveCounter = document.querySelector('.moves').innerHTML;
   document.getElementById('congrats-background').classList.remove('win');
   document.getElementById('congrats-text').classList.remove('win');
+  setGameBoard();
 }
 
 //event listeners.

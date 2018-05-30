@@ -8,6 +8,7 @@ const playAgain = document.querySelector('button');
 const congratsMoves = document.querySelector('#congrats-text .moves');
 const congratsTimer = document.querySelector('#congrats-text #timer-text');
 const congratsStars = document.querySelectorAll('#score li');
+let runTime;
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -75,22 +76,24 @@ function setGameBoard() {
   const newGameBoard = document.querySelectorAll('.card');
   newGameBoard.forEach(function(card) {
     card.addEventListener('click', playGame);
+
+  document.querySelector('.deck').addEventListener('click', timer);
   });
 }
 
-function timer(runTimer) {
+function timer(e) {
   let time = 0;
-  while(runTimer) {
-    setTimeout(function(){
+  if (e.target.nodeName === 'LI') {
+    runTime = setInterval (function(){
+      document.querySelector('.deck').removeEventListener('click', timer);
       time++;
+      let sec = (time % 60);
+      let min = Math.floor(time/60);
+      let hour = Math.floor((time/60)/60);
+
+      document.querySelector('#timer-text').innerText = format(hour) +':' +format(min) +':' +format(sec);
     }, 1000);
-  }
-  let sec = (time % 60);
-  let min = Math.floor(time/60);
-  let hour = Math.floor((time/60)/60);
-
-
-  document.querySelector('#timer-text').innerText = format(hour) +':' +format(min) +':' +format(sec);
+  };
 }
 
 //formatting timer numbers.
@@ -156,6 +159,7 @@ function moveCount() {
 //triggers the congrats screen.
 function checkWin() {
   if (matchedCards.length === 16) {
+    clearInterval(runTime);
     document.getElementById('congrats-background').classList.add('win');
     document.getElementById('congrats-text').classList.add('win');
     congratsMoves.innerHTML = moveCounter;
@@ -165,7 +169,7 @@ function checkWin() {
   }
 }
 
-//resets the board. NEED TO ADD SHUFFLE TO THIS!
+//resets the game and shuffles cards.
 function reset() {
   const tempCardList =  document.querySelectorAll('.card'); //nodelist of all cards
 
@@ -185,13 +189,11 @@ function reset() {
   document.getElementById('congrats-background').classList.remove('win');
   document.getElementById('congrats-text').classList.remove('win');
   setGameBoard();
+  clearInterval(runTime);
+  document.querySelector('#timer-text').innerText = '00:00:00';
 }
 
 //event listeners.
-// gameBoard.forEach(function(card) {
-//   card.addEventListener('click', playGame);
-// });
-
 resetIcon.addEventListener('click', reset);
 playAgain.addEventListener('click', reset);
 

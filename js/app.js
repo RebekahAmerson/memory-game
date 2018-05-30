@@ -1,5 +1,6 @@
 let moveCounter = document.querySelector('.moves').innerHTML; //move counter
-let gameBoard = document.querySelectorAll('.card'); //array of all cards
+let cardNL = document.querySelectorAll('.card'); //nodelist of all cards
+let gameBoard = [...cardNL]; //array of cards from the nodelist
 let flippedCards = []; //cards that have been flipped
 let matchedCards = []; //cards that are matched
 const resetIcon = document.querySelector('.restart'); //reset icon

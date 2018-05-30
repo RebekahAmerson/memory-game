@@ -4,17 +4,11 @@ let gameBoard = [...cardNL]; //array of cards from the nodelist
 let flippedCards = []; //cards that have been flipped
 let matchedCards = []; //cards that are matched
 const resetIcon = document.querySelector('.restart'); //reset icon
-const playAgain = document.querySelector('button');
+const playAgain = document.querySelector('button'); //play again button
 const congratsMoves = document.querySelector('#congrats-text .moves');
 const congratsTimer = document.querySelector('#congrats-text #timer-text');
 const congratsStars = document.querySelectorAll('#score li');
-let runTime;
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
+let runTime; //variable for set interval
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -30,18 +24,6 @@ function shuffle(array) {
 
     return array;
 }
-
-
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
 
 //contains all game parts.
 function playGame(e) {
@@ -74,13 +56,14 @@ function setGameBoard() {
   oldUL.parentNode.replaceChild(myUL, oldUL);
 
   const newGameBoard = document.querySelectorAll('.card');
-  newGameBoard.forEach(function(card) {
+  newGameBoard.forEach(function(card) { //set event listeners for shuffled deck
     card.addEventListener('click', playGame);
 
   document.querySelector('.deck').addEventListener('click', timer);
   });
 }
 
+//game timer, started on first click of a card
 function timer(e) {
   let time = 0;
   if (e.target.nodeName === 'LI') {
@@ -127,7 +110,7 @@ function matchCard() {
       flippedCards.forEach(function(element, index) {
         flippedCards[index].classList.add('different');
         flippedCards[index].classList.remove('open');
-    })
+    });
 }}
 
 //resets cards that are not matched.

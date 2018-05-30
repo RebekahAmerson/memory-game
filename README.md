@@ -15,4 +15,4 @@ To start the game, click on a card. Timer will start. Pick another card. If the 
 - https://use.fontawesome.com/releases/v5.0.13/css/all.css
 - https://fonts.googleapis.com (Coda and Luckiest Guy fonts)
 
-This project was done as part of the Front-End Web Developer Nanodegree program from [Udacity}(https://www.udacity.com).
+This project was done as part of the Front-End Web Developer Nanodegree program from [Udacity](https://www.udacity.com/).

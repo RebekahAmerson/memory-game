@@ -191,3 +191,23 @@ h1 {
   font-size: 1.3em;
   background: #b3e6ff;
 }
+
+/* media queries */
+@media screen and (max-width: 700px) {
+  .deck {
+      transform: scale(.45);
+      position: relative;
+      top: -150px;
+  }
+
+  #congrats-text {
+    font-size: .6em;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #congrats-background {
+    height: 40%;
+    top: -75%;
+  }
+}

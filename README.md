@@ -2,19 +2,17 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+* [How to Play](#How-to-Play)
+* [Dependencies](#Dependencies)
 
-## Instructions
+## How to Play
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+To start the game, click on a card. Timer will start. Pick another card. If the cards match, they will turn green and stay visible. If they do not match, the cards will turn red and then flip back over. Keep trying to make matches until all the cards are matched. A congratulations screen will appear with your total moves, total time and a star rating for the game. Click "Play Again" to start the fun all over.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Dependencies
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+- http://stackoverflow.com/a/2450976 (shuffle function)
+- https://use.fontawesome.com/releases/v5.0.13/css/all.css
+- https://fonts.googleapis.com (Coda and Luckiest Guy fonts)
 
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+This project was done as part of the Front-End Web Developer Nanodegree program from [Udacity}(https://www.udacity.com).

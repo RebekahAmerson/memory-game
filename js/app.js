@@ -59,28 +59,22 @@ function setGameBoard() {
   const myUL = document.createElement('ul');
 
   myUL.classList.add('deck');
-  console.log ('created ul');
   shuffle(gameBoard);
 
   gameBoard.forEach(function(element, index) {
     const newLI = document.createElement('li');
-    console.log ('created li');
-    console.log ('li nodeName is ' +newLI.nodeName);
     const symbol = gameBoard[index].innerHTML;
 
     newLI.innerHTML = symbol;
     newLI.classList.add('card');
     myUL.appendChild(newLI);
-    console.log ('append li to ul');
-  })
+  });
   oldUL.parentNode.replaceChild(myUL, oldUL);
-  console.log ('replace old card with new card');
 
   const newGameBoard = document.querySelectorAll('.card');
   newGameBoard.forEach(function(card) {
     card.addEventListener('click', playGame);
   });
-
 }
 
 
@@ -102,7 +96,7 @@ function matchCard() {
         flippedCards[index].classList.add('match');
         flippedCards[index].classList.remove('open');
         matchedCards.push(flippedCards[index]);
-      })
+      });
     }
     else {
       flippedCards.forEach(function(element, index) {
@@ -115,7 +109,7 @@ function matchCard() {
 function resetFlippedArray() {
   flippedCards.forEach(function(element,index) {
     flippedCards[index].classList.remove('open', 'different');
-})
+});
   flippedCards = [];
 }
 
@@ -149,13 +143,15 @@ function checkWin() {
 
 //resets the board. NEED TO ADD SHUFFLE TO THIS!
 function reset() {
+  const tempCardList =  document.querySelectorAll('.card'); //nodelist of all cards
+
   document.querySelectorAll('.stars i')[1].classList.add('fa');
   document.querySelectorAll('.stars i')[1].classList.remove('far');
   document.querySelectorAll('.stars i')[0].classList.add('fa');
   document.querySelectorAll('.stars i')[0].classList.remove('far');
 
-  cardNL.forEach(function(element,index) {
-    gameBoard[index].classList.remove('open', 'match', 'different');
+  tempCardList.forEach(function(element,index) {
+    tempCardList[index].classList.remove('open', 'match', 'different');
   });
 
   flippedCards = [];

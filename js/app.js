@@ -1,5 +1,5 @@
 let moveCounter = document.querySelector('.moves').innerHTML; //move counter
-let cardNL = document.querySelectorAll('.card'); //nodelist of all cards
+const cardNL = document.querySelectorAll('.card'); //nodelist of all cards
 let gameBoard = [...cardNL]; //array of cards from the nodelist
 let flippedCards = []; //cards that have been flipped
 let matchedCards = []; //cards that are matched
@@ -53,6 +53,38 @@ function playGame(e) {
   }
 }
 
+//runs shuffle function and transfers values to page.
+function setGameBoard() {
+  const oldUL = document.querySelector('.deck');
+  const myUL = document.createElement('ul');
+
+  myUL.classList.add('deck');
+  console.log ('created ul');
+  shuffle(gameBoard);
+
+  gameBoard.forEach(function(element, index) {
+    const newLI = document.createElement('li');
+    console.log ('created li');
+    console.log ('li nodeName is ' +newLI.nodeName);
+    const symbol = gameBoard[index].innerHTML;
+
+    newLI.innerHTML = symbol;
+    newLI.classList.add('card');
+    myUL.appendChild(newLI);
+    console.log ('append li to ul');
+  })
+  oldUL.parentNode.replaceChild(myUL, oldUL);
+  console.log ('replace old card with new card');
+
+  const newGameBoard = document.querySelectorAll('.card');
+  newGameBoard.forEach(function(card) {
+    card.addEventListener('click', playGame);
+  });
+
+}
+
+
+
 //takes card and if it isn't already flipped and not an icon, adds it to the flipped cards array.
 function flipCard(e) {
   if (!e.target.classList.contains('open') && !e.target.classList.contains('match') && (e.target.nodeName != 'I')) {
@@ -64,6 +96,7 @@ function flipCard(e) {
 function matchCard() {
   card1 = flippedCards[0].firstElementChild.classList.value;
   card2 = flippedCards[1].firstElementChild.classList.value;
+
     if (card1 === card2) {
       flippedCards.forEach(function(element, index) {
         flippedCards[index].classList.add('match');
@@ -104,6 +137,7 @@ function moveCount() {
   document.querySelector('.moves').innerHTML = moveCounter;
 }
 
+//triggers the congrats screen.
 function checkWin() {
   if (matchedCards.length === 16) {
     document.getElementById('congrats-background').classList.add('win');
@@ -119,9 +153,11 @@ function reset() {
   document.querySelectorAll('.stars i')[1].classList.remove('far');
   document.querySelectorAll('.stars i')[0].classList.add('fa');
   document.querySelectorAll('.stars i')[0].classList.remove('far');
-  gameBoard.forEach(function(element,index) {
+
+  cardNL.forEach(function(element,index) {
     gameBoard[index].classList.remove('open', 'match', 'different');
   });
+
   flippedCards = [];
   matchedCards = [];
   document.querySelector('.moves').innerHTML = 0;
@@ -131,9 +167,9 @@ function reset() {
 }
 
 //event listeners.
-gameBoard.forEach(function(card) {
-  card.addEventListener('click', playGame);
-});
+// gameBoard.forEach(function(card) {
+//   card.addEventListener('click', playGame);
+// });
 
 resetIcon.addEventListener('click', reset);
 playAgain.addEventListener('click', reset);

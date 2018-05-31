@@ -64,19 +64,17 @@ function setGameBoard() {
 }
 
 //game timer, started on first click of a card
-function timer(e) {
+function timer() {
+  document.querySelector('.deck').removeEventListener('click', timer);
   let time = 0;
-  if (e.target.nodeName === 'LI') {
-    runTime = setInterval (function(){
-      document.querySelector('.deck').removeEventListener('click', timer);
-      time++;
-      let sec = (time % 60);
-      let min = Math.floor(time/60);
-      let hour = Math.floor((time/60)/60);
+  runTime = setInterval (function(){
+    time++;
+    let sec = (time % 60);
+    let min = Math.floor(time/60);
+    let hour = Math.floor((time/60)/60);
 
-      document.querySelector('#timer-text').innerText = format(hour) +':' +format(min) +':' +format(sec);
-    }, 1000);
-  };
+    document.querySelector('#timer-text').innerText = format(hour) +':' +format(min) +':' +format(sec);
+  }, 1000);
 }
 
 //formatting timer numbers.
@@ -96,8 +94,8 @@ function flipCard(e) {
 
 //compares symbol on card to each other.
 function matchCard() {
-  card1 = flippedCards[0].firstElementChild.classList.value;
-  card2 = flippedCards[1].firstElementChild.classList.value;
+  const card1 = flippedCards[0].firstElementChild.classList.value;
+  const card2 = flippedCards[1].firstElementChild.classList.value;
 
     if (card1 === card2) {
       flippedCards.forEach(function(element, index) {

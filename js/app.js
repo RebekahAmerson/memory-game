@@ -28,13 +28,27 @@ function shuffle(array) {
 //contains all game parts.
 function playGame(e) {
   flipCard(e);
+
   if (flippedCards.length === 2) {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(function(card) { //remove event listeners to stop card clicking after 2
+      card.removeEventListener('click', playGame);
+    });
+
     setTimeout(matchCard, 300);
     setTimeout(resetFlippedArray, 1000);
     moveCount();
     starRating();
     setTimeout(checkWin, 300);
+    setTimeout(addEventListener, 1000);
   }
+}
+
+function addEventListener(){
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(function(card) { //remove event listeners to stop card clicking after 2
+  card.addEventListener('click', playGame); //add event listener after cards have flipped
+});
 }
 
 //runs shuffle function and transfers values to page.
